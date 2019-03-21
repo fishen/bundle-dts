@@ -1,6 +1,6 @@
 {
   "name": "bundle-dts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate and bundle declaration files to one d.ts file from a .ts entry file.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/fishen/bundle-dts.git"
   },
-  "keywords": [],
+  "keywords": [
+    "bundle",
+    "dts",
+    "typescript",
+    "gulp"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
