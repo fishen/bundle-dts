@@ -1,0 +1,24 @@
+{
+  "name": "bundle-dts",
+  "version": "1.0.0",
+  "description": "Generate and bundle declaration files to one d.ts file from a .ts entry file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fishen/bundle-dts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fishen/bundle-dts/issues"
+  },
+  "homepage": "https://github.com/fishen/bundle-dts#readme",
+  "dependencies": {
+    "through2": "^3.0.1",
+    "vinyl": "^2.2.0"
+  }
+}
