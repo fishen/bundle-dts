@@ -7,3 +7,7 @@ export class Demo implements IDo {
         console.log('do something');
     }
 }
+
+export abstract class ADemo {
+
+}

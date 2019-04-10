@@ -54,7 +54,7 @@ module.exports = function bundle(options = {}) {
             let contents = declarations[filePath];
             contents = contents.replace(IMPORTED_ALL_REGEXP, '');
             contents = contents.replace(/^(.+?)$/gm, `${indent}$1`);
-            contents = contents.replace(/declare\s+(type|function|class|interface|enum|const)/g, '$1');
+            contents = contents.replace(/declare\s+(abstract\s+)?(type|function|class|interface|enum|const)/g, '$1$2');
             contents = contents.replace(IMPORTED_REGEXP, function (statement, ...args) {
                 const groups = args[args.length - 1];
                 const relative = groups.relative;

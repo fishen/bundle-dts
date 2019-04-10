@@ -1,6 +1,6 @@
 {
   "name": "bundle-dts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate and bundle declaration files to one d.ts file from a .ts entry file.",
   "main": "index.js",
   "scripts": {

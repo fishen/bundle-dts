@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const bundle = require('bdts');
+const bundle = require('bundle-dts');
 
 exports.default = function () {
     return gulp.src('index.ts')

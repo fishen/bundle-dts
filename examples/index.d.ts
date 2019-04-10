@@ -13,6 +13,8 @@ declare module "examples/demo" {
     export class Demo implements IDo {
         do(): void;
     }
+    export abstract class ADemo {
+    }
     export {};
 }
 declare module "examples" {
