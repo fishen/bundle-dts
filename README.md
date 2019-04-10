@@ -22,6 +22,7 @@ Run task in terminal.
 gulp
 ```
 # Options
+* compilerOptions(object, optional): Compiler options for ts, default is *{}*.
 * module(string, optional): The module name for dts, it will try to get name option from *package.json* by default, otherwise return *'defaultModuleName'*.
 * outFile(string, optional): Output file name, default is *index.d.ts*.
 * ts(ts, optional): TS file compilation object, default use require('typescript').

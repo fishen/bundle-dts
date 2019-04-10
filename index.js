@@ -47,8 +47,9 @@ function getDefaultModuleName() {
 module.exports = function bundle(options = {}) {
     options.module = options.module || getDefaultModuleName();
     options.outFile = options.outFile || 'index.d.ts';
+    options.compilerOptions = options.compilerOptions || {};
     return through2.obj(function (file, enc, callback) {
-        const declarations = getDeclarationFiles([file.path], { noLib: true }, options.ts);
+        const declarations = getDeclarationFiles([file.path], options.compilerOptions, options.ts);
         const indent = ' '.repeat(4);
         const contents = Object.keys(declarations).map((filePath) => {
             let contents = declarations[filePath];
