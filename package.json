@@ -1,6 +1,6 @@
 {
   "name": "bundle-dts",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Generate and bundle declaration files to one d.ts file from a .ts entry file.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/fishen/bundle-dts#readme",
   "dependencies": {
-    "through2": "^3.0.1",
-    "vinyl": "^2.2.0"
+    "through2": "^3.0.1"
   }
 }

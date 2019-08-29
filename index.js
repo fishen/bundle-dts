@@ -1,5 +1,4 @@
 const through2 = require("through2");
-const Vinyl = require('vinyl');
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
@@ -55,7 +54,7 @@ module.exports = function bundle(options = {}) {
             let contents = declarations[filePath];
             contents = contents.replace(IMPORTED_ALL_REGEXP, '');
             contents = contents.replace(/^(.+?)$/gm, `${indent}$1`);
-            contents = contents.replace(/declare\s+(abstract\s+)?(type|function|class|interface|enum|const)/g, '$1$2');
+            contents = contents.replace(/declare\s+(abstract\s+)?(type|function|class|interface|enum|const|let|var)/g, '$1$2');
             contents = contents.replace(IMPORTED_REGEXP, function (statement, ...args) {
                 const groups = args[args.length - 1];
                 const relative = groups.relative;
@@ -67,7 +66,9 @@ module.exports = function bundle(options = {}) {
             contents = format(isEntryFile ? options.module : moduleName, contents);
             return contents;
         }).join(os.EOL);
-        this.push(new Vinyl({ contents: Buffer.from(contents), path: options.outFile }));
+        file.contents = Buffer.from(contents);
+        file.path = options.outFile;
+        this.push(file);
         callback();
     });
 }
