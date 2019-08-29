@@ -2,6 +2,7 @@ const through2 = require("through2");
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
+const Vinyl = require('vinyl');
 
 const IMPORTED_REGEXP = /(export|import)\s+(.+?)\s+from\s+(['|\"])(?<relative>\..+?)\3;?$/gm;
 const IMPORTED_ALL_REGEXP = /import\s+(['|\"])\.{1,2}\/.+\1;?\n?/gm;
@@ -66,9 +67,7 @@ module.exports = function bundle(options = {}) {
             contents = format(isEntryFile ? options.module : moduleName, contents);
             return contents;
         }).join(os.EOL);
-        file.contents = Buffer.from(contents);
-        file.path = options.outFile;
-        this.push(file);
+        this.push(new Vinyl({ contents: Buffer.from(contents), path: options.outFile }));
         callback();
     });
 }
