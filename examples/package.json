@@ -2,18 +2,24 @@
   "name": "examples",
   "version": "1.0.0",
   "description": "",
-  "main": "gulpfile.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "gulp": "gulp",
+    "node": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.0",
-    "typescript": "^3.3.4000"
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.3.4000",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "bundle-dts": "file:../bundle-dts-1.0.6.tgz"
+    "bundle-dts": "file:../bundle-dts-1.1.0.tgz"
   }
 }
