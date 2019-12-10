@@ -14,6 +14,7 @@ ${contents}}`;
 
 function getDeclarationFiles(rootFiles, compilerOptions, ts) {
     ts = ts || require('typescript');
+    compilerOptions = Object.assign({}, compilerOptions, { declaration: true });
     const program = ts.createProgram(rootFiles, compilerOptions);
     const sourceFiles = program.getSourceFiles().filter(f => !f.isDeclarationFile);
     const declarations = {};
@@ -55,7 +56,6 @@ module.exports = function (options = {}) {
 
 function generate(options) {
     const { entry, compilerOptions, ts, cwd, } = Object.assign({
-        compilerOptions: {},
         cwd: path.resolve('.'),
     }, options);
     const module = options.module || getModuleName(cwd);

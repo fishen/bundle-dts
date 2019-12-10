@@ -47,7 +47,7 @@ console.log(dts);
 bundle({ entry: './src/index.ts', outFile: 'index.d.ts' });
 ```
 # Options
-* compilerOptions(object, optional): Compiler options for ts, default is `{}`.
+* compilerOptions(object, optional): Compiler options for ts, default is `{ declaration:true }`.
 * module(string, optional): The module name for dts, it will try to get name option from *package.json* by default, otherwise return *'defaultModuleName'*.
 * ts(ts, optional): TS file compilation object, default use `require('typescript')`.
 * cwd(string,optional): Default use `path.resolve('.')`.
