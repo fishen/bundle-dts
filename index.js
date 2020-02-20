@@ -14,19 +14,21 @@ ${contents}}`;
 
 function getDeclarationFiles(rootFiles, compilerOptions, ts) {
     ts = ts || require('typescript');
-    compilerOptions = Object.assign({}, compilerOptions, { declaration: true });
-    const program = ts.createProgram(rootFiles, compilerOptions);
-    const sourceFiles = program.getSourceFiles().filter(f => !f.isDeclarationFile);
-    const declarations = {};
-    sourceFiles.forEach(f => {
-        program.emit(
-            f,
-            (fileName, data) => declarations[fileName] = data,
-            undefined,
-            true
-        );
-    })
-    return declarations;
+    compilerOptions = Object.assign({
+        target: ts.ScriptTarget && ts.ScriptTarget.Latest,
+    }, compilerOptions, {
+        declaration: true,
+        emitDeclarationOnly: true
+    });
+    const createdFiles = {};
+    const host = ts.createCompilerHost(compilerOptions);
+    host.writeFile = (fileName, contents) => createdFiles[fileName] = contents;
+    // Prepare and emit the d.ts files
+    const program = ts.createProgram(rootFiles, compilerOptions, host);
+    program.emit().diagnostics.filter(d => d.file && d.messageText).forEach(d => {
+        console.error(d.file.fileName, d.messageText);
+    });
+    return createdFiles;
 }
 
 function getModuleName(cwd) {
