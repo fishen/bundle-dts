@@ -72,10 +72,11 @@ function generate(options) {
             const groups = args[args.length - 1];
             const relative = groups.relative;
             const fullpath = path.resolve(path.dirname(filePath), relative);
-            return statement.replace(relative, fullpath.replace(cwd, module));
+            const rpath = fullpath.replace(cwd, module).replace(/\\/g, '/')
+            return statement.replace(relative, rpath);
         });
         const isEntryFile = path.resolve(filePath.replace('.d.ts', '.ts')) === path.resolve(entry);
-        const moduleName = filePath.replace(cwd, module).replace('.d.ts', '');
+        const moduleName = path.join(module, path.relative(cwd, filePath)).replace(/\\/g, '/').replace('.d.ts', '');
         contents = format(isEntryFile ? module : moduleName, contents);
         return contents;
     }).join(os.EOL);
