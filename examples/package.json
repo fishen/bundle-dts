@@ -13,11 +13,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.3.4000",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "gulp": "^4.0.2",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "bundle-dts": "file:../bundle-dts-1.1.1.tgz"
