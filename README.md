@@ -35,6 +35,25 @@ module.exports = {
     }
 };
 ```
+## Multiple Entry Points
+```js
+// webpack.config.js
+const { plugin: BundleDTSPlugin } = require('bundle-dts');
+
+module.exports = {
+    entry: './src/index.ts',
+    module: {
+        rules: [{ test: /\.ts(x?)$/, loader: "ts-loader" }]
+    },
+    plugins: [
+        new BundleDTSPlugin({ entry: './src/index.ts' }),
+        new BundleDTSPlugin({ entry: './src/main.ts', outFile: 'main.d.ts' }),
+    ],
+    resolve: {
+        extensions: ['.ts']
+    }
+};
+```
 # Used with node
 ```js
 // index.js

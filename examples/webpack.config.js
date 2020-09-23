@@ -7,7 +7,8 @@ module.exports = {
         rules: [{ test: /\.ts(x?)$/, loader: "ts-loader" }]
     },
     plugins: [
-        new BundleDTSPlugin()
+        new BundleDTSPlugin({ entry: './src/index.ts', outFile: 'index.d.ts' }),
+        new BundleDTSPlugin({ entry: './src/main.ts', outFile: 'main.d.ts', module: 'main' }),
     ],
     resolve: {
         extensions: ['.ts']

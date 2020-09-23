@@ -97,7 +97,7 @@ class BundlePlugin {
         this.options = options || {};
     }
     apply(compiler) {
-        const done = () => bundle(Object.assign(this.options, { entry: compiler.options.entry }));
+        const done = () => bundle(Object.assign({ entry: compiler.options.entry }, this.options));
         if (compiler.hooks) {
             compiler.hooks.done.tap('BundleDTSPlugin', done);
         } else {

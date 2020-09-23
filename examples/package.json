@@ -19,7 +19,5 @@
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
-  "dependencies": {
-    "bundle-dts": "file:../bundle-dts-1.1.1.tgz"
-  }
+  "dependencies": {}
 }
